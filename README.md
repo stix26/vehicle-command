@@ -321,3 +321,42 @@ You can read package [documentation on pkg.go.dev](https://pkg.go.dev/github.com
 This repository supports `go mod` and follows [Go version
 semantics](https://go.dev/doc/modules/version-numbers). Note that v0.x.x
 releases do not guarantee API stability.
+
+## Build & Test
+
+The following steps were performed to verify the build and test process for this repository:
+
+### 1. Clone the Repository
+
+```sh
+git clone https://github.com/stix26/vehicle-command.git
+cd vehicle-command
+```
+
+### 2. Build the Project
+
+```sh
+go mod download
+go build ./cmd/...
+```
+- All Go dependencies were downloaded successfully.
+- All main binaries in the `cmd/` directory were built without errors.
+
+### 3. Run and Test Commands
+
+Each main command was run with the `--help` flag to verify successful build and execution:
+
+- `go run ./cmd/tesla-control --help`
+- `go run ./cmd/tesla-http-proxy --help`
+- `go run ./cmd/tesla-keygen --help`
+- `go run ./cmd/tesla-auth-token --help`
+- `go run ./cmd/tesla-jws --help`
+
+All commands displayed their help output, confirming the build and runtime environment is set up correctly.
+
+### 4. Notes
+- The project uses Go modules and a standard Go project structure.
+- For actual use (beyond `--help`), some commands require configuration, keys, or tokens as described in the documentation.
+- No errors or warnings were encountered during the build or help command execution.
+
+For more details, see the documentation and help output for each command.
